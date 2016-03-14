@@ -7,7 +7,6 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.vinay.almabase.login.register.presenter.OnRegisterFinishedListener;
 import com.vinay.almabase.utils.Constants;
-import com.vinay.almabase.utils.UpdateFirebaseLogin;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,7 +27,7 @@ public class RegisterInteractorImpl implements RegisterInteractor,
 
     @Override
     public void registerUser (String email, String password, OnRegisterFinishedListener listener) {
-        firebase.createUser (email, password, this);
+        //firebase.createUser (email, password, this);
         this.email = email;
         this.password = password;
         this.listener = listener;
@@ -52,14 +51,15 @@ public class RegisterInteractorImpl implements RegisterInteractor,
         map.put ("displayName", "user");
         map.put ("email", email);
         map.put ("provider", "password");
-        firebase.child ("users").child ((String) stringObjectMap.get ("uid")).setValue (map);
-        firebase.authWithPassword (email, password, this);
+        //firebase.child ("users").child ((String) stringObjectMap.get ("uid")).setValue (map);
+        //firebase.authWithPassword (email, password, this);
+        //firebase.authWithPassword (email, password, this);
     }
 
     @Override
     public void onAuthenticated (AuthData authData) {
         listener.onSuccess (authData.getUid (), authData.getToken ());
-        UpdateFirebaseLogin.updateFirebase(authData);
+        //UpdateFirebaseLogin.updateFirebase(authData);
     }
 
     @Override

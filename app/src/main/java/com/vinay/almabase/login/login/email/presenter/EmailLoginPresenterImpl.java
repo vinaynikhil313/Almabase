@@ -1,6 +1,6 @@
 package com.vinay.almabase.login.login.email.presenter;
 
-import com.vinay.almabase.utils.User;
+import com.vinay.almabase.user.User;
 import com.vinay.almabase.login.login.email.interactor.EmailLoginInteractor;
 import com.vinay.almabase.login.login.email.interactor.EmailLoginInteractorImpl;
 import com.vinay.almabase.login.login.email.view.EmailLoginFragmentView;

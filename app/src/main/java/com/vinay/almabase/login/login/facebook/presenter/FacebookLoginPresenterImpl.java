@@ -6,7 +6,7 @@ import com.facebook.AccessToken;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.login.LoginResult;
-import com.vinay.almabase.utils.User;
+import com.vinay.almabase.user.User;
 import com.vinay.almabase.login.login.facebook.interactor.FacebookLoginInteractor;
 import com.vinay.almabase.login.login.facebook.interactor.FacebookLoginInteractorImpl;
 import com.vinay.almabase.login.login.facebook.view.FacebookLoginFragmentView;

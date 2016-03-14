@@ -19,7 +19,7 @@ import com.facebook.login.widget.LoginButton;
 import com.google.gson.Gson;
 import com.vinay.almabase.main.view.MainActivity;
 import com.vinay.almabase.R;
-import com.vinay.almabase.utils.User;
+import com.vinay.almabase.user.User;
 import com.vinay.almabase.login.login.facebook.presenter.FacebookLoginPresenterImpl;
 import com.vinay.almabase.utils.Constants;
 

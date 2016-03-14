@@ -1,6 +1,6 @@
 package com.vinay.almabase.login.login.facebook.view;
 
-import com.vinay.almabase.utils.User;
+import com.vinay.almabase.user.User;
 
 /**
  * Created by Vinay Nikhil Pabba on 22-01-2016.

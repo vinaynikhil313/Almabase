@@ -11,10 +11,9 @@ import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
-import com.vinay.almabase.utils.User;
 import com.vinay.almabase.login.login.facebook.presenter.OnFacebookLoginFinishedListener;
+import com.vinay.almabase.user.User;
 import com.vinay.almabase.utils.Constants;
-import com.vinay.almabase.utils.UpdateFirebaseLogin;
 
 import org.json.JSONObject;
 
@@ -56,9 +55,9 @@ public class FacebookLoginInteractorImpl implements
     @Override
     public void onAuthenticated (AuthData authData) {
         //listener.onFirebaseLoginSuccess (user);
-        UpdateFirebaseLogin.updateFirebase(authData);
+        //UpdateFirebaseLogin.updateFirebase(authData);
 
-        firebase.child ("users").child (authData.getUid ()).addListenerForSingleValueEvent (this);
+        //firebase.child ("users").child (authData.getUid ()).addListenerForSingleValueEvent (this);
     }
 
     @Override
@@ -74,7 +73,7 @@ public class FacebookLoginInteractorImpl implements
     @Override
     public void onDataChange (DataSnapshot dataSnapshot) {
         User user = dataSnapshot.getValue (User.class);
-        Log.i("FACEBOOK INTERACTOR", "UID = " + user.getUid ());
+        //Log.i("FACEBOOK INTERACTOR", "UID = " + user.getUid ());
         listener.onFirebaseLoginSuccess (user);
     }
 }

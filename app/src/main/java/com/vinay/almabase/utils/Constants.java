@@ -36,8 +36,8 @@ public class Constants {
 	public static final int PASSWORD_ERROR_CODE = 9909;
 	public static final int CREDENTIALS_OK = 8910;
 
-	public static final String[] ITEMS = new String[] {"Posts",
-			"Comments",
-			"Users"};
+	public static final String[] ITEMS = new String[] {"posts",
+			"comments",
+			"users"};
 
 }

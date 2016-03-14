@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.vinay.almabase.DetailActivity;
+import com.vinay.almabase.list_details.view.DetailsActivity;
 import com.vinay.almabase.R;
 import com.vinay.almabase.utils.Constants;
 import com.vinay.almabase.utils.Utilities;
@@ -41,14 +41,14 @@ public class MainActivityFragment extends Fragment {
 		mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				Intent intent = new Intent(getContext(), DetailActivity.class);
-				intent.putExtra(DetailActivity.EXTRA_PARAM_ID, position);
+				Intent intent = new Intent(getContext(), DetailsActivity.class);
+				intent.putExtra(DetailsActivity.EXTRA_PARAM_ID, position);
 
 				Log.i(TAG, "Clicked position is " + position);
 				View viewById = view.findViewById(R.id.list_item_text);
 				if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 					ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(),
-							new Pair<View, String>(viewById, DetailActivity.VIEW_NAME_HEADER_TITLE));
+							new Pair<View, String>(viewById, DetailsActivity.VIEW_NAME_HEADER_TITLE));
 					Log.i(TAG, options.toBundle().toString());
 					ActivityCompat.startActivity(getActivity(), intent,
 							options.toBundle());

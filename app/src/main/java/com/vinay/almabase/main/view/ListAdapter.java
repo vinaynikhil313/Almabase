@@ -30,7 +30,7 @@ public class ListAdapter extends ArrayAdapter<String> {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
 		TextView text = (TextView) convertView.findViewById(R.id.list_item_text);
-		text.setText(items[position]);
+		text.setText(items[position].toUpperCase());
 		//text.setTransitionName("title" + position);
 		return convertView;
 	}

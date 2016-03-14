@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.vinay.almabase;
+package com.vinay.almabase.list_details.view;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -24,14 +24,22 @@ import android.support.v7.widget.Toolbar;
 import android.transition.Explode;
 import android.transition.Slide;
 import android.transition.Transition;
-import android.util.Log;
 import android.view.Gravity;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.vinay.almabase.R;
+import com.vinay.almabase.comment.Comment;
+import com.vinay.almabase.list_details.presenter.DetailsPresenter;
+import com.vinay.almabase.list_details.presenter.DetailsPresenterImpl;
+import com.vinay.almabase.post.Post;
+import com.vinay.almabase.user.User;
 import com.vinay.almabase.utils.Constants;
 import com.vinay.almabase.utils.Utilities;
 
-public class DetailActivity extends AppCompatActivity {
+import java.util.List;
+
+public class DetailsActivity extends AppCompatActivity implements DetailsView {
 
 	private final String TAG = Utilities.getTag(this);
 
@@ -42,6 +50,10 @@ public class DetailActivity extends AppCompatActivity {
 	public static final String VIEW_NAME_HEADER_TITLE = "detail:header:title";
 
 	private TextView mTitle;
+	private ListView mListView;
+
+	private DetailsPresenter presenter;
+
 	private int position;
 
 	@Override
@@ -57,8 +69,9 @@ public class DetailActivity extends AppCompatActivity {
 
 			getWindow().setEnterTransition(ts_enter);
 			getWindow().setExitTransition(ts_exit);
-			Log.i(TAG, "Item details transitions created");
 		}
+
+		presenter = new DetailsPresenterImpl(this);
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.item_details);
@@ -71,11 +84,34 @@ public class DetailActivity extends AppCompatActivity {
 
 		mTitle = (TextView) findViewById(R.id.item_title);
 
-		Log.i(TAG, "Title is " + mTitle.getText().toString());
+		mListView = (ListView) findViewById(R.id.itemDetails);
+
 		ViewCompat.setTransitionName(mTitle, VIEW_NAME_HEADER_TITLE);
 
-		mTitle.setText(Constants.ITEMS[position]);
+		mTitle.setText(Constants.ITEMS[position].toUpperCase());
+
+		presenter.getDetails(position);
 
 	}
 
+	@Override
+	public void onUsersListGenerated(List<User> users) {
+
+	}
+
+	@Override
+	public void onCommentsListGenerated(List<Comment> comments) {
+
+	}
+
+	@Override
+	public void onPostsListGenerated(List<Post> posts) {
+
+	}
+
+	@Override
+	public void onListGenerated(List<Object> objects) {
+		DetailsListAdapter adapter = new DetailsListAdapter(this, objects);
+		mListView.setAdapter(adapter);
+	}
 }

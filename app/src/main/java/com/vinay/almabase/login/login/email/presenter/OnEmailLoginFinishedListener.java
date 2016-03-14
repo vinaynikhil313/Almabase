@@ -1,7 +1,7 @@
 package com.vinay.almabase.login.login.email.presenter;
 
 
-import com.vinay.almabase.utils.User;
+import com.vinay.almabase.user.User;
 
 /**
  * Created by Vinay Nikhil Pabba on 21-01-2016.
