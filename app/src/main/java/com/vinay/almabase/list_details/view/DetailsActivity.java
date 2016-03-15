@@ -16,6 +16,7 @@
 
 package com.vinay.almabase.list_details.view;
 
+import android.app.ProgressDialog;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.ViewCompat;
@@ -29,11 +30,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.vinay.almabase.R;
-import com.vinay.almabase.comment.Comment;
 import com.vinay.almabase.list_details.presenter.DetailsPresenter;
 import com.vinay.almabase.list_details.presenter.DetailsPresenterImpl;
-import com.vinay.almabase.post.Post;
-import com.vinay.almabase.user.User;
 import com.vinay.almabase.utils.Constants;
 import com.vinay.almabase.utils.Utilities;
 
@@ -53,6 +51,7 @@ public class DetailsActivity extends AppCompatActivity implements DetailsView {
 	private ListView mListView;
 
 	private DetailsPresenter presenter;
+	private ProgressDialog mProgressDialog;
 
 	private int position;
 
@@ -90,22 +89,13 @@ public class DetailsActivity extends AppCompatActivity implements DetailsView {
 
 		mTitle.setText(Constants.ITEMS[position].toUpperCase());
 
+		mProgressDialog = new ProgressDialog(this);
+		mProgressDialog.setMessage("Please wait...");
+		mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+		mProgressDialog.setIndeterminate (true);
+		mProgressDialog.show();
+
 		presenter.getDetails(position);
-
-	}
-
-	@Override
-	public void onUsersListGenerated(List<User> users) {
-
-	}
-
-	@Override
-	public void onCommentsListGenerated(List<Comment> comments) {
-
-	}
-
-	@Override
-	public void onPostsListGenerated(List<Post> posts) {
 
 	}
 
@@ -113,5 +103,10 @@ public class DetailsActivity extends AppCompatActivity implements DetailsView {
 	public void onListGenerated(List<Object> objects) {
 		DetailsListAdapter adapter = new DetailsListAdapter(this, objects);
 		mListView.setAdapter(adapter);
+	}
+
+	@Override
+	public void hideProgressDialog() {
+		mProgressDialog.hide();
 	}
 }

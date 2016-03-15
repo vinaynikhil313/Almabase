@@ -50,5 +50,6 @@ public class DetailsPresenterImpl implements DetailsPresenter, OnDetailsGenerate
 	@Override
 	public void onListGenerated(List<Object> objects) {
 		view.onListGenerated(objects);
+		view.hideProgressDialog();
 	}
 }

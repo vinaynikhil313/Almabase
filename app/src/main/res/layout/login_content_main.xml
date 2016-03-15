@@ -46,16 +46,15 @@
             android:layout_alignParentRight="true"
             android:linksClickable="false"/>
 
-
     </RelativeLayout>
 
-    <!--<fragment
+    <fragment
         android:id="@+id/facebookLoginFragment"
         android:name="com.vinay.almabase.login.login.facebook.view.FacebookLoginFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        tools:layout="@layout/login_facebook_fragment"/>-->
+        tools:layout="@layout/login_facebook_fragment"/>
 
 </LinearLayout>

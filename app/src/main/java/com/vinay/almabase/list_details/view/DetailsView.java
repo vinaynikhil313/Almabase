@@ -1,9 +1,5 @@
 package com.vinay.almabase.list_details.view;
 
-import com.vinay.almabase.comment.Comment;
-import com.vinay.almabase.post.Post;
-import com.vinay.almabase.user.User;
-
 import java.util.List;
 
 /**
@@ -11,12 +7,8 @@ import java.util.List;
  */
 public interface DetailsView {
 
-	void onUsersListGenerated(List<User> users);
-
-	void onCommentsListGenerated(List<Comment> comments);
-
-	void onPostsListGenerated(List<Post> posts);
-
 	void onListGenerated(List<Object> objects);
+
+	void hideProgressDialog();
 
 }

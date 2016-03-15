@@ -18,13 +18,15 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
         android:text="LARGE TEXT"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:transitionName="@string/transition_name"/>
+        android:textAppearance="?android:attr/textAppearanceLarge"/>
 
     <ListView
         android:id="@+id/itemDetails"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="10dp"/>
 
 </LinearLayout>
